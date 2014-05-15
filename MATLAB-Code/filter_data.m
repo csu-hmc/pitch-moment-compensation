@@ -37,3 +37,4 @@ function [moment_cal_filt,moment_cor_filt,acc_cal_filt,acc_cor_filt]=...
         moment_cor_filt=moment_cor_filt(100:end,:);
         acc_cal_filt=acc_cal_filt(100:end,:);
         acc_cor_filt=acc_cor_filt(100:end,:);
+end
