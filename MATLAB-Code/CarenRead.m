@@ -1,10 +1,3 @@
-%Sandra Hnat
-%Cleveland State University
-%Summer 2013
-
-%This is Dr. van den Bogert's program that will read and sort the
-%saved text file from D-Flow.  
-
 %==========================================================================
 % CarenRead
 % reads data from a standard CAREN text file
