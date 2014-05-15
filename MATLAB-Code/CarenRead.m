@@ -1,6 +1,6 @@
 %==========================================================================
-% CarenRead
-% reads data from a standard CAREN text file
+% function CARENREAD
+% reads data from a standard Mocap text file (previously called Caren)
 %==========================================================================
 function [timestamps, framenumbers, channelnames, data] = CarenRead(filename);
 
