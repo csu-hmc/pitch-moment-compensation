@@ -20,9 +20,10 @@ clear
    %Finding Directory and Obtaining Names
         allFiles = dir('Data');
         allNames = { allFiles.name };
-   %Post-Processing
-        slow_data=process_data(allNames{7},allNames{8},allNames{9},allNames{10});
-        fast_data=process_data(allNames{3},allNames{4},allNames{5},allNames{6});
+        [slow_files,fast_files]=filename_parser(allNames);
+     %Post-Processing
+        slow_data=process_data(slow_files{1},slow_files{2},slow_files{3},slow_files{4});
+        fast_data=process_data(fast_files{1},fast_files{2},fast_files{3},fast_files{4});
 %-------------------------------------------------------------------------
 %Filtering,Simulating,and Compensating
 %-------------------------------------------------------------------------
