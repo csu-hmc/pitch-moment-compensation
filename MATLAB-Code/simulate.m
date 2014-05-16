@@ -1,4 +1,4 @@
-function [mx_sim,mx_corrected]=pitch_moment_correction(u_cor,y_cor,theta)
+function [mx_sim,mx_corrected]=simulate(u_cor,y_cor,theta)
 
 %=========================================================================
 %FUNCTION mx_correction
@@ -21,12 +21,9 @@ function [mx_sim,mx_corrected]=pitch_moment_correction(u_cor,y_cor,theta)
 %--------
 %Outputs
 %--------
-%   mx_sim       (Nsamples x 1) Column vector with simulated pitch moment
-%                               after applying the coefficients from the
-%                               calibration trial
 %   mx_corrected (Nsamples x 1) Column vector of corrected pitch moment 
-%                               after substracting the simulation from the
-%                               recorded data
+%                               after applying the coefficients from the 
+%                               calibration trial
 %=========================================================================
 
     ysim=zeros(length(u_cor),1);

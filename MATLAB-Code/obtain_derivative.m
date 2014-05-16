@@ -20,4 +20,3 @@ function [derivative]=obtain_derivative(time, variable)
               der1 = (variable(i+1,:)- variable(i-1,:))/(time(i+1,:)- time(i-1,:));
             derivative(i-1,:)=der1;
         end
-end

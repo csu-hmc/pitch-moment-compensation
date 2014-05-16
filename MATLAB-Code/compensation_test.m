@@ -40,8 +40,8 @@ clear
             %Obtain Coefficients
                 theta_slow=pitch_moment_calibration(acc_cal_filt_slow,moment_cal_filt_slow);
             %Simulate
-                [moment_cal_sim_slow, ~]=pitch_moment_correction(acc_cal_filt_slow,moment_cal_filt_slow,theta_slow);
-                [~, moment_corrected_slow]=pitch_moment_correction(acc_cor_filt_slow,moment_cor_filt_slow,theta_slow);
+                [moment_cal_sim_slow, ~]=simulate(acc_cal_filt_slow,moment_cal_filt_slow,theta_slow);
+                [~, moment_corrected_slow]=simulate(acc_cor_filt_slow,moment_cor_filt_slow,theta_slow);
         %-------------------------
         %Data Set 2 (Fast)
         %-------------------------
@@ -51,8 +51,8 @@ clear
             %Obtain Coefficients
                 theta_fast=pitch_moment_calibration(acc_cal_filt_fast,moment_cal_filt_fast);
             %Simulate
-                [moment_cal_sim_fast, ~]=pitch_moment_correction(acc_cal_filt_fast,moment_cal_filt_fast,theta_fast);
-                [~, moment_corrected_fast]=pitch_moment_correction(acc_cor_filt_fast,moment_cor_filt_fast,theta_fast);
+                [moment_cal_sim_fast, ~]=simulate(acc_cal_filt_fast,moment_cal_filt_fast,theta_fast);
+                [~, moment_corrected_fast]=simulate(acc_cor_filt_fast,moment_cor_filt_fast,theta_fast);
         %-----------------------------------
         %Plot Measured vs. Simulated @ 6 Hz
         %-----------------------------------
