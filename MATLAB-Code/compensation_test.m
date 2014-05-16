@@ -28,9 +28,9 @@ clear
 %Filtering,Simulating,and Compensating
 %-------------------------------------------------------------------------
     frequencies=6:6;
-    for i=1:length(frequencies)
     statistics_table_slow=zeros(length(frequencies),5);
     statistics_table_fast=zeros(length(frequencies),5);
+    for i=1:length(frequencies)
         %-------------------------
         %Data Set 1 (Slow)
         %-------------------------
