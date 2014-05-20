@@ -17,20 +17,24 @@ clear
 %------------------------------------------------------------------------
 %Uploading Data Set 
 %------------------------------------------------------------------------
+    display('Starting Computation...')
    %Finding Directory and Obtaining Names
         allFiles = dir('Data');
         allNames = { allFiles.name };
         [slow_files,fast_files]=filename_parser(allNames);
      %Post-Processing
+        display('Loading and Post-Processing (Data Set 1)...')
         slow_data=process_data(slow_files{1},slow_files{2},slow_files{3},slow_files{4});
+        display('Loading and Post-Processing (Data Set 2)...')
         fast_data=process_data(fast_files{1},fast_files{2},fast_files{3},fast_files{4});
 %-------------------------------------------------------------------------
 %Filtering,Simulating,and Compensating
 %-------------------------------------------------------------------------
-    frequencies=6:6;
+    frequencies=5:7;
     statistics_table_slow=zeros(length(frequencies),5);
     statistics_table_fast=zeros(length(frequencies),5);
     for i=1:length(frequencies)
+        fprintf('Estimating Model Coefficients and Simulating for %d Hz... \n', frequencies(i))
         %-------------------------
         %Data Set 1 (Slow)
         %-------------------------
@@ -57,6 +61,7 @@ clear
         %Plot Measured vs. Simulated @ 6 Hz
         %-----------------------------------
         if frequencies(i)==6
+            display('Plotting Simulation at 6 Hz...')
             slow_sim=[slow_data(100:end,1),moment_cal_filt_slow,moment_cal_sim_slow];
             fast_sim=[fast_data(100:end,1),moment_cal_filt_fast,moment_cal_sim_fast];
             plot_simulation_graphs(slow_sim,fast_sim)
@@ -68,6 +73,7 @@ clear
 %-------------------------------------------------------------------------
 %Calculate Statistics, Generate Table, Produce Frequency Plot
 %-------------------------------------------------------------------------
+    
     %Calculation
         statistics_table_slow_new=calculate_statistics(frequencies(i),moment_cor_filt_slow,moment_corrected_slow);
         statistics_table_fast_new=calculate_statistics(frequencies(i),moment_cor_filt_fast,moment_corrected_fast);
@@ -75,7 +81,8 @@ clear
         statistics_table_fast(i,:)=statistics_table_fast_new;
             %Save if Cutoff Frequency = 6 Hz
                 if frequencies(i)==6
-                    c={'R^2','Uncompensated','Compensated','Difference'}
+                    display('Calculating Statistics at 6 Hz...')
+                    c={'R^2','Uncompensated','Compensated','Difference'};
                     results_table=[statistics_table_slow_new(2:end);statistics_table_fast_new(2:end)]
                     path = '\Results\';
                     tablename1 = 'statistical_results.txt';
@@ -85,6 +92,7 @@ clear
     
     if length(frequencies)>1
         %Cutoff Frequency Plot
+             display('Plotting Cutoff Frequencies...')
              slow_graphs=[statistics_table_slow(:,1),statistics_table_slow(:,3),statistics_table_slow(:,4)];
              fast_graphs=[statistics_table_fast(:,1),statistics_table_fast(:,3),statistics_table_fast(:,4)];
              plot_frequency_graphs(slow_graphs,fast_graphs)
@@ -92,3 +100,4 @@ clear
                      figname2='CutoffFrequency.eps';
                      saveas(gcf,[fpat,filesep,figname2],'epsc')
     end
+    display('Computation Complete.')
