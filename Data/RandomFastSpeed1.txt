@@ -1,3 +1,4 @@
+%Timestamp (s) Pitch Moment (Nm)  Belt Velocity (m/s)
 0	-13.0637	1.5155
 0.00998	-1.06324	1.5155
 0.02	-1.76145	1.48272
