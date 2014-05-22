@@ -65,18 +65,15 @@ clear
         %----------------------------
         %Simulation and Compensation
         %-----------------------------
-            %Simulation Results
-                [m_cal_sim_slow, ~]=simulate(a_cal_filt_slow,m_cal_filt_slow,theta_slow);
-                [m_cal_sim_fast, ~]=simulate(a_cal_filt_fast,m_cal_filt_fast,theta_fast);
             %Compensation
-                [~, m_corrected_slow]=simulate(a_cor_filt_slow,m_cor_filt_slow,theta_slow);
-                [~, m_corrected_fast]=simulate(a_cor_filt_fast,m_cor_filt_fast,theta_fast);  
+                [m_cor_sim_slow, m_corrected_slow]=simulate(a_cor_filt_slow,m_cor_filt_slow,theta_slow);
+                [m_cor_sim_fast, m_corrected_fast]=simulate(a_cor_filt_fast,m_cor_filt_fast,theta_fast);  
         %-------------------------------------------------
         %Plot Measured vs. Simulated at Desired Frequency
         %-------------------------------------------------
             if frequencies(i)==desired_frequency
-                slow_sim=[slow_data(100:end-100,1),m_cal_filt_slow(100:end-100,:),m_cal_sim_slow];
-                fast_sim=[fast_data(100:end-100,1),m_cal_filt_fast(100:end-100,:),m_cal_sim_fast];
+                slow_sim=[slow_data(100:end-100,1),m_cor_filt_slow(100:end-100,:),m_cor_sim_slow];
+                fast_sim=[fast_data(100:end-100,1),m_cor_filt_fast(100:end-100,:),m_cor_sim_fast];
                 plot_simulation_graphs(slow_sim,fast_sim)
             end
         %----------------------------------------------------------------
