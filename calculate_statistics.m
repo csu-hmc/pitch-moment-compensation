@@ -9,8 +9,10 @@ function statistics_table=calculate_statistics(frequency,uncompensated,compensat
 %-------
 %Inputs
 %-------
-%   uncompensated  (Nsamples x 1)    Vector of the uncompensated variable
-%   compensated    (Nsamples x 1)    Vector of the compensated variable
+%   frequency      (Nfrequencies x 1) Vector of the range of cutoff
+%                                     frequencies
+%   uncompensated  (Nfrequencies x 1) Vector of the uncompensated moment
+%   compensated    (Nfrequencies x 1) Vector of the compensated moment
 %--------
 %Outputs
 %--------

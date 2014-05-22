@@ -1,1 +1,0 @@
-After cloning a copy of this repository to your local computer, you can drag the data files here.  

@@ -1,1 +1,1 @@
-Saved graphs and table will go to this directory when running the compensation_test.m 
+Saved graphs will go to this directory when running the compensation_test.m 

@@ -21,20 +21,16 @@ function [moment_cal_filt,moment_cor_filt,acc_cal_filt,acc_cor_filt]=...
 %--------
 %Outputs
 %--------
-%     moment_cal_filt   (Nsamples-100 x 1)  Filtered pitch moment (cal)
-%     moment_cor_filt   (Nsamples-100 x 1)  Filtered pitch moment (cor)
-%     acc_cal_filt      (Nsamples-100 x 1)  Filtered acceleration (cal)
-%     acc_cor_filt      (Nsamples-100 x 1)  Filtered acceleration (cor)
+%     moment_cal_filt   (Nsamples x 1)  Filtered pitch moment (cal)
+%     moment_cor_filt   (Nsamples x 1)  Filtered pitch moment (cor)
+%     acc_cal_filt      (Nsamples x 1)  Filtered acceleration (cal)
+%     acc_cor_filt      (Nsamples x 1)  Filtered acceleration (cor)
 %=========================================================================
     %Filtering
         [num,den]=butter(2,cutoff_frequency/(100/2));
-        moment_cal_filt=filter(num,den,data_table(:,1));
-        moment_cor_filt=filter(num,den,data_table(:,2));
-        acc_cal_filt=filter(num,den,data_table(:,3));
-        acc_cor_filt=filter(num,den,data_table(:,4));
-    %Clip Transients
-        moment_cal_filt=moment_cal_filt(100:end,:);
-        moment_cor_filt=moment_cor_filt(100:end,:);
-        acc_cal_filt=acc_cal_filt(100:end,:);
-        acc_cor_filt=acc_cor_filt(100:end,:);
+        filtered=filter(num,den,data_table);
+        moment_cal_filt=filtered(:,1);
+        moment_cor_filt=filtered(:,2);
+        acc_cal_filt=filtered(:,3);
+        acc_cor_filt=filtered(:,4);
 end
