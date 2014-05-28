@@ -23,9 +23,9 @@ function [theta]=pitch_moment_calibration(acc,moment)
 %
 %--------------------------------------------------------------------------
 
-thetaguess=zeros(6,1)+0.001;
+thetaguess=zeros(5,1)+0.001;
 options=optimoptions('fmincon','Display','notify');
-theta=fmincon(@optfunc,thetaguess,[],[],[],[],-10*ones(6,1),10*ones(6,1),[],options);
+theta=fmincon(@optfunc,thetaguess,[],[],[],[],-10*ones(5,1),10*ones(5,1),[],options);
 
 %-------------------------------------------------------------------------
 %Optimization to Reduce Error Between Simulated and Recorded Pitch Moment
