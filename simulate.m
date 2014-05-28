@@ -18,7 +18,7 @@ function [m_simulated,m_corrected]=simulate(acc,moment,theta)
 %                               from the trial to be corrected
 %   moment    (Nsamples x 1)    Column vector of recorded pitch moment
 %                               from the trial to be corrected
-%   theta     (6 x 1)           Column vector coefficients obtained from the
+%   theta     (5 x 1)           Column vector coefficients obtained from the
 %                               mx_calibration function
 %--------
 %Outputs
