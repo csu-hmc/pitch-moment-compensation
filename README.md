@@ -53,9 +53,6 @@ The data processing pipeline follows this general process:
 3. Computes belt acceleration by numerical differentiation.(`obtain_derivative.m`)
 4. Sets a range of desired cutoff frequencies for the lowpass filter (1-20 Hz).  Also sets
 	a cutoff frequency of interest (6 Hz).  
-
-For each cutoff frequency in the specified range:
-
 5. Filters signals (acceleration and pitch moment) with the cutoff frequency(`filter_data.m`)
 6. Computes model coefficients for the belt acceleration pitch moment model.
    (`pitch_moment_calibration.m`)
