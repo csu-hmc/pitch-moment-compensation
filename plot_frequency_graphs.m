@@ -3,9 +3,9 @@ function plot_frequency_graphs(data1,data2,desired)
 %=========================================================================
 %function PLOT_FREQUENCY_GRAPHS
 %      Plots a graph comparing the RMS of the uncompensated and compensated
-%      pitch moment as a function of  the cutoff frequency of the
-%      lowpass filter. A dashed line will appear between the uncompensated
-%      and compensated moments at location of the desired cutoff frequency
+%      pitch moment as a function of the cutoff frequency of the lowpass
+%      filter. A dashed line will appear between the uncompensated and
+%      compensated moments at location of the desired cutoff frequency.
 %
 %------
 %Input
@@ -16,7 +16,7 @@ function plot_frequency_graphs(data1,data2,desired)
 %    data2     (Nsamples x 3)  Array of the cutoff frequencies, RMS before 
 %                              compensation,and RMS after compensation for
 %                              the second data set
-%    desired   scalar          The cutoff frequency of the most interest
+%    desired   double          The cutoff frequency of the most interest
 %-------
 %Output
 %-------

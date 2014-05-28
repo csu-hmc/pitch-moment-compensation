@@ -3,9 +3,8 @@ function [moment_cal_filt,moment_cor_filt,acc_cal_filt,acc_cor_filt]=...
 
 %=========================================================================
 %function FILTER_DATA
-%      Filters the data through a low-pass Butterworth filter based on the 
-%      provided cutoff frequency.  Clips the first second from
-%      the data to remove the initiation of the filter
+%      Filters the data through a low-pass Butterworth filter based on the
+%      provided cutoff frequency.
 %
 %-------
 %Inputs
@@ -15,8 +14,8 @@ function [moment_cal_filt,moment_cor_filt,acc_cal_filt,acc_cor_filt]=...
 %                                 calibration and correction trials in
 %                                 the form:
 %                                 [Mom_cal, Mom_cor, Acc_cal, Acc_cor]
-%     cutoff_frequency (scalar)   The desired cutoff frequency for the
-%                                 %low-pass filter
+%     cutoff_frequency (double)   The desired cutoff frequency for the
+%                                 low-pass filter.
 %
 %--------
 %Outputs

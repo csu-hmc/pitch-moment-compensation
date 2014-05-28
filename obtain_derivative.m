@@ -3,9 +3,10 @@ function [new_data]=obtain_derivative(all_data)
 %=========================================================================
 %FUNCTION obtain_derivative
 %      Calculates the acceleration of the calibration and correction trials
-%      by taking the derivative of the belt velocity.  Clips the first
-%      frame of the time, pitch moment, and acceleration to remove any NAN
-%      that can occur with taking the derivative
+%      by numerical differentiation of the belt velocity using the two point
+%      formula. Clips the first frame of the time, pitch moment, and
+%      acceleration to remove any NAN that can occur with taking the
+%      derivative.
 %
 %--------
 %Inputs
@@ -17,10 +18,11 @@ function [new_data]=obtain_derivative(all_data)
 %--------
 %Outputs
 %--------
-%   new_data  (Nsamples x 6)  An array containing the the time, pitch 
-%                             moment, and acceleration for the calibration and
-%                             correction trials of the form:
-%                             [t_cal t_cor m_cal m_cor a_cal_a_cor]
+%   new_data  ((Nsamples - 3) x 6) An array containing the the time, pitch
+%                                  moment, and acceleration for the
+%                                  calibration and correction trials of the
+%                                  form:
+%                                  [t_cal t_cor m_cal m_cor a_cal_a_cor]
 %
 %--------------------------------------------------------------------------
 
@@ -33,14 +35,14 @@ function [new_data]=obtain_derivative(all_data)
 %-----------------------------------------------------------------------
 %Obtaining Acceleration
 %-----------------------------------------------------------------------
-    %Calibration 
-        acc_cal=zeros(length(time_cal)-2,1); 
+    %Calibration
+        acc_cal=zeros(length(time_cal)-2,1);
         for i=2:length(time_cal)-1
               acc_cal1 = (velocity_cal(i+1,:)- velocity_cal(i-1,:))/(time_cal(i+1,:)- time_cal(i-1,:));
               acc_cal(i-1,:)=acc_cal1;
         end
-    %Correction    
-        acc_cor=zeros(length(time_cor)-2,1); 
+    %Correction
+        acc_cor=zeros(length(time_cor)-2,1);
         for i=2:length(time_cor)-1
               acc_cor1 = (velocity_cor(i+1,:)- velocity_cor(i-1,:))/(time_cor(i+1,:)- time_cor(i-1,:));
               acc_cor(i-1,:)=acc_cor1;

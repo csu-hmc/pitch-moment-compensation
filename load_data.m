@@ -1,20 +1,20 @@
 function [all_data]=load_data(filename1,filename2)
 
 %=========================================================================
-%function FILENAME_PARSER
+%function load_data
 %     Loads the filenames passed by the user and creates a data matrix
-%     for the compensation_test.m script 
+%     for the compensation_test.m script.
 %
 %-------
 %Inputs
 %-------
-%   filename1   string         The filename of the calibration trial
-%   filename2   string         The filename of the data to be corrected
+%   filename1   char          The filename of the calibration trial
+%   filename2   char          The filename of the data to be corrected
 %
 %--------
 %Outputs
 %--------
-%   all_data  (Nsamples x 6)  An array containing the the time, pitch 
+%   all_data  (Nsamples x 6)  An array containing the the time, pitch
 %                             moment, and velocity for the calibration and
 %                             correction trials of the form:
 %                             [t_cal t_cor m_cal m_cor v_cal_v_cor]

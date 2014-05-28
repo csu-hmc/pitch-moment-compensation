@@ -3,10 +3,10 @@
 %   1) Loads data
 %   2) Obtains acceleration from belt velocity using obtain_derivative.m
 %   3) Filters the belt accelerations and pitch moments
-%   4) Passes the acceleration and the pitch moment into the 
+%   4) Passes the acceleration and the pitch moment into the
 %      pitch_moment_calibration and simulate functions
 %   3) Calculates the R^2 and the RMS before and after the compensation, as
-%      well as the reduction in RMS. Displays a table at the desired 
+%      well as the reduction in RMS. Displays a table at the desired
 %      cutoff frequency
 %   4) Produces plots comparing the simulated pitch moment and the measured
 %      pitch moment at the desired cutoff frequency
@@ -19,7 +19,7 @@ clc
 clear
 
 %-------------------------------------------------------------------------
-%Uploading Data Set 
+%Uploading Data Set
 %-------------------------------------------------------------------------
    display('Starting Computation...')
    %Specifying Filenames
@@ -67,7 +67,7 @@ clear
         %-----------------------------
             %Compensation
                 [m_cor_sim_slow, m_corrected_slow]=simulate(a_cor_filt_slow,m_cor_filt_slow,theta_slow);
-                [m_cor_sim_fast, m_corrected_fast]=simulate(a_cor_filt_fast,m_cor_filt_fast,theta_fast);  
+                [m_cor_sim_fast, m_corrected_fast]=simulate(a_cor_filt_fast,m_cor_filt_fast,theta_fast);
         %-------------------------------------------------
         %Plot Measured vs. Simulated at Desired Frequency
         %-------------------------------------------------
@@ -94,7 +94,7 @@ clear
                         fprintf('_________________________________________________________\n')
                         fprintf('  %2.2f    %2.2f        %2.2f         %2.2f          \n',results_table')
                         fprintf('________________________________________________________\n\n')
-                    %Update Simulation Graph with R^2 
+                    %Update Simulation Graph with R^2
                         figure(1)
                         subplot(1,2,1)
                         legend('Measured',sprintf('Simulated (%2.2f%%)',results_table(1,1)*100))
