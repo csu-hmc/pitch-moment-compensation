@@ -1,14 +1,14 @@
 function [m_simulated,m_corrected]=simulate(acc,moment,theta)
 
 %=========================================================================
-%FUNCTION mx_correction
-%   1) Compensates for inertial errors in pitch moment due to the 
-%      rotation of the treadmill rollers.  
-%   2) Simulates the pitch moment by using recorded accelerations and 
-%      the coefficients obtained from the calibration function 
+%FUNCTION simulate
+%   1) Compensates for inertial errors in pitch moment due to the
+%      rotation of the treadmill rollers.
+%   2) Simulates the pitch moment by using recorded accelerations and
+%      the coefficients obtained from the calibration function
 %      pitch_moment_calibration
 %   3) Performs the compensation by subtracting the simulated pitch
-%      moment from the measured value.  
+%      moment from the measured value.
 %   4) Clips the first and last second of the data
 %
 %--------
@@ -23,12 +23,13 @@ function [m_simulated,m_corrected]=simulate(acc,moment,theta)
 %--------
 %Outputs
 %--------
-%   m_simulated (Nsamples x 1)  Column vector of the simulated pitch moment
-%                               by applying the coefficients obtained from
-%                               the calibration
-%   m_corrected (Nsamples x 1)  Column vector of corrected pitch moment 
-%                               after subtracting the simulation from the
-%                               measurements
+%   m_simulated ((Nsamples - 199) x 1)  Column vector of the simulated
+%                                       pitch moment by applying the
+%                                       coefficients obtained from the
+%                                       calibration
+%   m_corrected ((Nsamples - 199) x 1)  Column vector of corrected pitch
+%                                       moment after subtracting the
+%                                       simulation from the measurements
 %=========================================================================
 
 %Defining Coefficients

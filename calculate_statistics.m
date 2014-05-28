@@ -1,7 +1,7 @@
 function statistics_table=calculate_statistics(frequency,uncompensated,compensated)
 
 %=========================================================================
-%function DISPLAY_STATISTICS
+%function CALCULATE_STATISTICS
 %      1) Calculates the R^2 value
 %      2) Calculates the RMS before and after compensation
 %      3) Calculates the RMS reduction percentage
