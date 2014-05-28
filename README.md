@@ -55,6 +55,7 @@ The data processing pipeline follows this general process:
 	a cutoff frequency of interest (6 Hz).  
 
 For each cutoff frequency in the specified range:
+
 5. Filters signals (acceleration and pitch moment) with the cutoff frequency(`filter_data.m`)
 6. Computes model coefficients for the belt acceleration pitch moment model.
    (`pitch_moment_calibration.m`)
