@@ -46,8 +46,8 @@ Computation Steps
 
 The data processing pipeline follows this general process:
 
-1. Specifies filenames located in the 'Data' directory. 
-2. Loads data from tab separated ACSII data files ('load_data.m'). Data includes
+1. Specifies filenames located in the `Data` directory. 
+2. Loads data from tab separated ACSII data files (`load_data.m`). Data includes
 	the timestamps, recorded belt velocities, and recorded pitch moment (Mx) from 
 	four data files (two slow speeds at 1.2 m/s and two fast speeds at (2.0 m/s). 
 3. Computes belt acceleration by numerical differentiation.(`obtain_derivative.m`)
@@ -59,7 +59,7 @@ The data processing pipeline follows this general process:
 7. Simulates the model with the acceleration as the independent variable.
    (`simulate.m`)
 8. Truncates the filtered data to avoid end effects (one second from beginning 
-	and end of the trial. ('simulate.m')
+	and end of the trial. (`simulate.m`)
 9. Subtracts the difference in the pitch moment due to belt acceleration.
     (`simulate.m`)
 10. Computes the coefficient of determination (R^2) of the model with respect to
@@ -68,8 +68,8 @@ The data processing pipeline follows this general process:
 	as the percent reduction (`caluclate_statistics.m`)
 11. Displays the table of results for the desired frequency (6 Hz).
 12. Shows a plot of simulation versus actual data at the desired frequency (6 Hz). 
-	('plot_simulation_graphs.m')
+	(`plot_simulation_graphs.m`)
 13. Shows a comparison of RMS with respect to the filter frequency for compensated
-    and uncompensated. ('plot_frequency_graphs.m'). If the range of the cutoff frequencies is 1, then the 
+    and uncompensated. (`plot_frequency_graphs.m`). If the range of the cutoff frequencies is 1, then the 
 	graph will not generate.
 14. Saves the graphs to the `Results` data directory.
