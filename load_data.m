@@ -19,13 +19,12 @@ function [all_data]=load_data(filename1,filename2)
 %                             correction trials of the form:
 %                             [t_cal t_cor m_cal m_cor v_cal_v_cor]
 %=========================================================================
-    
+
 %Loading
-    addpath('Data')
-    data1=load(filename1);
-    data2=load(filename2);
+    data1=importdata(['Data' filesep filename1]);
+    data2=importdata(['Data' filesep filename2]);
 %Creating Data Matrix
-    all_data=[data1(:,1) data2(:,1)...    %TimeStamps
-              data1(:,2) data2(:,2)...    %Pitch Moments
-              data1(:,3) data2(:,3)];     %Belt Velocities
+    all_data=[data1.data(:,1) data2.data(:,1)...    %TimeStamps
+              data1.data(:,2) data2.data(:,2)...    %Pitch Moments
+              data1.data(:,3) data2.data(:,3)];     %Belt Velocities
 end
