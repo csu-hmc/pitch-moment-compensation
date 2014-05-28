@@ -63,9 +63,9 @@ The data processing pipeline follows this general process:
 9. Subtracts the difference in the pitch moment due to belt acceleration.
     (`simulate.m`)
 10. Computes the coefficient of determination (R^2) of the model with respect to
-    the data from the other trial. (`caluclate_statistics.m`)
+    the data from the other trial. (`calculate_statistics.m`)
 11. Computes the RMS of the uncompensated and compensated pitch moment of the trials, as well 
-	as the percent reduction (`caluclate_statistics.m`)
+	as the percent reduction (`calculate_statistics.m`)
 11. Displays the table of results for the desired frequency (6 Hz).
 12. Shows a plot of simulation versus actual data at the desired frequency (6 Hz). 
 	(`plot_simulation_graphs.m`)
