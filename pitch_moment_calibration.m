@@ -17,7 +17,7 @@ function [theta]=pitch_moment_calibration(acc,moment)
 %--------
 %Outputs
 %--------
-%   theta     (6 x 1)           Column vector of the estimated coefficients
+%   theta     (5 x 1)           Column vector of the estimated coefficients
 %                               from the second-order model and
 %                               optimization
 %
