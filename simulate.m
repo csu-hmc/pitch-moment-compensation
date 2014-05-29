@@ -1,4 +1,4 @@
-function m_simulated=simulate(acc,moment,theta)
+function m_simulated=simulate(acc,theta)
 
 %=========================================================================
 %FUNCTION simulate
@@ -7,16 +7,12 @@ function m_simulated=simulate(acc,moment,theta)
 %   2) Simulates the pitch moment by using recorded accelerations and
 %      the coefficients obtained from the calibration function
 %      pitch_moment_calibration
-%   3) Performs the compensation by subtracting the simulated pitch
-%      moment from the measured value.
-%   4) Clips the first and last second of the data
+%   3) Clips the first and last second from the simulated data
 %
 %--------
 %Inputs
 %--------
 %   acc       (Nsamples x 1)    Column vector of recorded accelerations
-%                               from the trial to be corrected
-%   moment    (Nsamples x 1)    Column vector of recorded pitch moment
 %                               from the trial to be corrected
 %   theta     (5 x 1)           Column vector coefficients obtained from the
 %                               mx_calibration function
@@ -27,9 +23,6 @@ function m_simulated=simulate(acc,moment,theta)
 %                                       pitch moment by applying the
 %                                       coefficients obtained from the
 %                                       calibration
-%   m_corrected ((Nsamples - 199) x 1)  Column vector of corrected pitch
-%                                       moment after subtracting the
-%                                       simulation from the measurements
 %=========================================================================
 
 %Defining Coefficients

@@ -66,9 +66,9 @@ clear
         %Simulation and Compensation
         %-----------------------------
             %Compensation
-                m_cor_sim_slow=simulate(a_cor_filt_slow,m_cor_filt_slow,theta_slow);
+                m_cor_sim_slow=simulate(a_cor_filt_slow,theta_slow);
                 m_corrected_slow=m_cor_sim_slow-m_cor_filt_slow(100:end-100,:);
-                m_cor_sim_fast=simulate(a_cor_filt_fast,m_cor_filt_fast,theta_fast);
+                m_cor_sim_fast=simulate(a_cor_filt_fast,theta_fast);
                 m_corrected_fast=m_cor_sim_fast-m_cor_filt_fast(100:end-100,:);
         %-------------------------------------------------
         %Plot Measured vs. Simulated at Desired Frequency
