@@ -31,7 +31,7 @@ theta=fmincon(@optfunc,thetaguess,[],[],[],[],-10*ones(5,1),10*ones(5,1),[],opti
 %Optimization to Reduce Error Between Simulated and Recorded Pitch Moment
 %-------------------------------------------------------------------------
     function [f]=optfunc(theta)
-        [moment_simulated,~]=simulate(acc,moment,theta);
+        moment_simulated=simulate(acc,moment,theta);
         f=norm(moment_simulated-moment(100:end-100,:));
     end
 end

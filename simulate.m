@@ -1,4 +1,4 @@
-function [m_simulated,m_corrected]=simulate(acc,moment,theta)
+function m_simulated=simulate(acc,moment,theta)
 
 %=========================================================================
 %FUNCTION simulate
@@ -38,6 +38,4 @@ function [m_simulated,m_corrected]=simulate(acc,moment,theta)
 %Simulating
     ysim=filter(B,A,acc);
     m_simulated=ysim(100:end-100,:);
-%Compensating
-    m_corrected=m_simulated-moment(100:end-100,:);
  end

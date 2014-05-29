@@ -66,8 +66,10 @@ clear
         %Simulation and Compensation
         %-----------------------------
             %Compensation
-                [m_cor_sim_slow, m_corrected_slow]=simulate(a_cor_filt_slow,m_cor_filt_slow,theta_slow);
-                [m_cor_sim_fast, m_corrected_fast]=simulate(a_cor_filt_fast,m_cor_filt_fast,theta_fast);
+                m_cor_sim_slow=simulate(a_cor_filt_slow,m_cor_filt_slow,theta_slow);
+                m_corrected_slow=m_cor_sim_slow-m_cor_filt_slow(100:end-100,:);
+                m_cor_sim_fast=simulate(a_cor_filt_fast,m_cor_filt_fast,theta_fast);
+                m_corrected_fast=m_cor_sim_fast-m_cor_filt_fast(100:end-100,:);
         %-------------------------------------------------
         %Plot Measured vs. Simulated at Desired Frequency
         %-------------------------------------------------
@@ -81,9 +83,9 @@ clear
         %----------------------------------------------------------------
             %Calculation
                 stat_table_slow_new=calculate_statistics(frequencies(i),...
-                                          m_cor_filt_slow(100:end-100,:),m_corrected_slow);
+                                          m_cor_filt_slow(100:end-100,:),m_cor_sim_slow,m_corrected_slow);
                 stat_table_fast_new=calculate_statistics(frequencies(i),...
-                                          m_cor_filt_fast(100:end-100,:),m_corrected_fast);
+                                          m_cor_filt_fast(100:end-100,:),m_cor_sim_fast,m_corrected_fast);
                 stat_table_slow(i,:)=stat_table_slow_new;
                 stat_table_fast(i,:)=stat_table_fast_new;
                 %Display and Save at Desired Frequency

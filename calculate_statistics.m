@@ -1,4 +1,4 @@
-function statistics_table=calculate_statistics(frequency,uncompensated,compensated)
+function statistics_table=calculate_statistics(frequency,measured,predicted,compensated)
 
 %=========================================================================
 %function CALCULATE_STATISTICS
@@ -23,14 +23,14 @@ function statistics_table=calculate_statistics(frequency,uncompensated,compensat
 %----------------
 %R^2
 %----------------
-    Ssresid=sum(compensated.^2);
-    Sstotal=(length(uncompensated)-1)*var(uncompensated);
-    rsq=1-Ssresid/Sstotal;
+    Ssres=sum(((measured-predicted).^2));
+    Sstotal=sum(((measured-mean(measured)).^2));
+    rsq=1-Ssres/Sstotal;
 %----------------
 %RMS Reduction
 %----------------
     compensated=sqrt(mean(compensated.^2));
-    uncompensated=sqrt(mean(uncompensated.^2));
+    uncompensated=sqrt(mean(measured.^2));
     difference=((uncompensated-compensated)/uncompensated)*100; 
 %----------------
 %Create Table
