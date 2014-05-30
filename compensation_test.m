@@ -1,5 +1,5 @@
 %=========================================================================
-%SCRIPT mx_correction.m
+%SCRIPT compensation_test.m
 %   1) Loads data
 %   2) Obtains acceleration from belt velocity using obtain_derivative.m
 %   3) Filters the belt accelerations and pitch moments
