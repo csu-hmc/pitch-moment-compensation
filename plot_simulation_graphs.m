@@ -22,7 +22,7 @@ function plot_simulation_graphs(data1,data2)
      %------------
      %Data Set 1
      %------------
-        subplot(1,2,1)
+        subplot(2,1,1)
         hold on
         plot(data1(:,1),data1(:,2),'k--')
         plot(data1(:,1),data1(:,3),'r')
@@ -34,7 +34,7 @@ function plot_simulation_graphs(data1,data2)
      %------------
      %Data Set 2
      %------------
-        subplot(1,2,2)
+        subplot(2,1,2)
         hold on
         plot(data2(:,1),data2(:,2),'k--')
         plot(data2(:,1),data2(:,3),'r')

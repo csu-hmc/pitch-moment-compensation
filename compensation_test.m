@@ -98,9 +98,9 @@ clear
                         fprintf('________________________________________________________\n\n')
                     %Update Simulation Graph with R^2
                         figure(1)
-                        subplot(1,2,1)
+                        subplot(2,1,1)
                         legend('Measured',sprintf('Simulated (%2.2f%%)',results_table(1,1)*100))
-                        subplot(1,2,2)
+                        subplot(2,1,2)
                         legend('Measured',sprintf('Simulated (%2.2f%%)',results_table(2,1)*100))
                         %Saving
                             fpat='Results';
